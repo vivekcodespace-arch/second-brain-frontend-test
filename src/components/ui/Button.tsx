@@ -1,19 +1,39 @@
 // import React from 'react';
 
+import type { ReactElement } from "react";
+import { PlusIcons } from "../../icons/PlusIcons";
+
 interface ButtonProps {
   variant: "primary" | "secondary";
   size: "sm" | "md" | "lg";
   text: string;
-  startIcon?: any;
-  endIcon?: any;
+  startIcon?: ReactElement;
+  endIcon?: ReactElement;
   onClick?: () => void;
 
 
 }
+const VariantStyle = {
+  "primary": "bg-light-purple font-quicksand text-dark-purple",
+  "secondary": "bg-dark-purple font-quicksand font-semibold text-white"
+}
+
+const sizeStyle = {
+  "sm": "text-sm py-1.5 px-3",
+  "md": "text-xl py-1.5 px-4",
+  "lg": "text-2xl px-1.5 py-8"
+}
+
+const defaultStyle = "rounded-md p-2 flex";
 
 const Button = (props: ButtonProps) => {
   return (
-    <button onClick={props.onClick} className="text-brand-blue font-quicksand">{props.text}</button>
+    <button onClick={props.onClick} className={`${VariantStyle[props.variant]} ${sizeStyle[props.size]} ${defaultStyle}`}>
+      {props.startIcon ? 
+        <div className="pr-1.5 flex justify-center items-center">{<PlusIcons size="md" />}</div> 
+        : null} 
+      {props.text}
+    </button>
   );
 };
 
