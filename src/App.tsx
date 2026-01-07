@@ -1,6 +1,7 @@
 // import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
+// import Card from './components/ui/Card'
 
 const App = () => {
   return (
@@ -8,6 +9,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home/>}/>
       </Routes>
+      {/* <Card/> */}
     </div>
   )
 }
