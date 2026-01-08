@@ -20,7 +20,10 @@ const Home = () => {
       
       </div>
 
-      <Card/>
+      <Card title='my-first-app' type='youtube' link='https://www.youtube.com/watch?v=vJQCAtzSfuo'/>
+
+      <Card title='my-first-app' type='twitter' link='https://x.com/AndrewBolis/status/2008927900695674887'/>
+
     </div>
   )
 }
