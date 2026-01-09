@@ -22,7 +22,7 @@ const sizeStyle = {
   "lg": "text-2xl px-1.5 py-8"
 }
 
-const defaultStyle = "rounded-md p-2 flex";
+const defaultStyle = "rounded-md p-2 flex cursor-pointer";
 
 const Button = (props: ButtonProps) => {
   return (

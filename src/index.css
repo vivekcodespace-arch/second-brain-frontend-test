@@ -1,14 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");/*This shoudl be imported before importing the tailwindcss*/
 @import "tailwindcss";
 
+
 @theme {
   --color-light-purple: #e6f5ff;
   --color-dark-purple: #6600ff;
   --font-quicksand: "Quicksand", system-ui, sans-serif;
 }
 
-body {
-  height: 100vh;
-  width: 100vw;
-}
+
+
 /*  */
