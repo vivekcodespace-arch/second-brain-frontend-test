@@ -3,10 +3,12 @@ import Button from "../components/ui/Button"
 import Input from "../components/ui/Input"
 import { BACKEND_URL } from "../config";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
     const usernameRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
+    const navigate = useNavigate();
 
     async function signUp(){
         console.log("function is called")
@@ -20,6 +22,7 @@ const SignUp = () => {
                 password: password
             })
             console.log('User signed up')
+            navigate("/signin")
         }catch(err){
             console.log("Error in the singup",err)
         }

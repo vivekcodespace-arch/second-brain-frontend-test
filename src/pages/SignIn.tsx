@@ -3,23 +3,27 @@ import Button from "../components/ui/Button"
 import Input from "../components/ui/Input"
 import { BACKEND_URL } from "../config";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const SignUp = () => {
+const SignIn = () => {
     const usernameRef = useRef<HTMLInputElement>(null);
     const passwordRef = useRef<HTMLInputElement>(null);
-
-    async function signUp(){
+    const navigate = useNavigate();
+    async function signin(){
         console.log("function is called in the sign")
         const username = usernameRef.current?.value;
         const password = passwordRef.current?.value;
         try{
             console.log(username)
             console.log(password)
-            await axios.post(BACKEND_URL + "/api/v1/signin",{
+            const response = await axios.post(BACKEND_URL + "/api/v1/signin",{
                 username : username,
                 password: password
             })
-            console.log('User signed in')
+            const jwt= response.data.token;
+            console.log(jwt)
+            localStorage.setItem("token" , jwt);
+            navigate("/")
         }catch(err){
             console.log("Error in the singup",err)
         }
@@ -31,11 +35,11 @@ const SignUp = () => {
                 <Input ref={usernameRef} placeholder="Username"/>
                 <Input ref={passwordRef} placeholder="passoword"/>
                 <span className="p-1"></span>
-                <Button variant="secondary" text="Submit" size="md" onClick={signUp}/>                
+                <Button variant="secondary" text="Submit" size="md" onClick={signin}/>                
             </div>
         </div>
 
     )
 }
 
-export default SignUp 
+export default SignIn

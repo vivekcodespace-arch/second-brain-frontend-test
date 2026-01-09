@@ -4,11 +4,12 @@ import { getEmbedurl } from "../../utils/youtube"
 interface CardProps {
     title: string,
     link: string,
-    type: "twitter" | "youtube"
+    type: "Twitter" | "Youtube"
 }
 
 const Card = ({ title, link, type }: CardProps) => {
     const embedurl= getEmbedurl(link, type)
+    
     return (
 
         <div className=" bg-white rounded-md p-3 outline-1 outline-slate-900 max-w-72 flex flex-col ">
@@ -29,7 +30,7 @@ const Card = ({ title, link, type }: CardProps) => {
 
             </div>
             {/* https://www.youtube.com/watch?v=mClF6mJV5xM */}
-            {type === "youtube" &&  embedurl &&
+            {type === "Youtube" &&  embedurl &&
                 <iframe
                     className="w-full"
                     src={embedurl}
@@ -40,7 +41,7 @@ const Card = ({ title, link, type }: CardProps) => {
                 />
             }
 
-            {type === "twitter" && embedurl &&
+            {type === "Twitter" && embedurl &&
                 <blockquote className="twitter-tweet">
                     <a href ={embedurl}></a>
                 </blockquote>

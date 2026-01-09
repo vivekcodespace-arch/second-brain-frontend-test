@@ -36,11 +36,11 @@ function getTwitterLink(url: string){
 
 export function getEmbedurl(link: string, type:string){
     let code;
-    if(type === "youtube"){
+    if(type === "Youtube"){
       code = getYouTubeVideoId(link)
       code = code ? `https://www.youtube.com/embed/${code}` : null;
     }
-    if(type ==="twitter"){
+    if(type ==="Twitter"){
       code = getTwitterLink(link)
       code = code ? `https://twitter.com/username/status/${code}` : null;
     }

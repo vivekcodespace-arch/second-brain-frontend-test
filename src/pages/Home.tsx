@@ -11,9 +11,11 @@ import { Twitter } from '../icons/Twiiter'
 import { Youtube } from '../icons/Youtube'
 import { HeroTitle } from '../components/ui/HeroTitle'
 import { ShareBrainIcon } from '../icons/ShareBrain'
+import { useContent } from '../hooks/useContent'
 
 const Home = () => {
   const [showAddcontent, setShowAddcontent] = useState(false);
+  const contents = useContent();
 
   return (
     <div className="w-full h-full flex ">
@@ -32,19 +34,16 @@ const Home = () => {
 
         </div>
 
-        <div className='flex gap-2'>
-          <div>
-            <Card title='my-first-app' type='youtube' link='https://www.youtube.com/watch?v=vJQCAtzSfuo' />
-          </div>
-
-          <div>
-            <Card title='my-first-app' type='twitter' link='https://x.com/AndrewBolis/status/2008927900695674887' />
-          </div>
-
+        <div className='flex flex-wrap gap-2'>
+          {contents.map(({type, title, link}) => (
+            <div>
+              <Card title={title} type={type} link={link} />
+            </div>
+          ))}
         </div>
       </div>
 
-      {showAddcontent && <CreateComponentModal open={setShowAddcontent} onClose={() => setShowAddcontent(false)} />}
+      {showAddcontent && <CreateComponentModal open={showAddcontent} onClose={() => setShowAddcontent(false)} />}
     </div>
   )
 }
