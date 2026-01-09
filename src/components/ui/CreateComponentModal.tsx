@@ -1,5 +1,6 @@
 import { CloseButton } from "../../icons/Close";
 import Button from "./Button";
+import Input from "./Input";
 
 export function CreateComponentModal({open, onClose}){
     return (
@@ -25,12 +26,3 @@ export function CreateComponentModal({open, onClose}){
     
 }
 
-function Input({onChange,placeholder}:{onChange: ()=>void, placeholder: string}){
-    return <input
-    placeholder={placeholder}
-    className="px-4 py-2 text-sm border border-gray-300 rounded-md focus-within:outline-dark-purple"
-    type="text"
-    onChange={onChange}
-
-    />
-}
